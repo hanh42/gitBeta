@@ -1,0 +1,113 @@
+:root {
+  --primary-color: #11caf0;
+}
+.station {
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+}
+
+.station::after {
+  z-index: 5;
+  transition: all 0.25s;
+  width: 25px;
+  height: 25px;
+  content: "";
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-color);
+}
+.station:checked:after {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.station::before {
+  content: "";
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: #11caf0;
+  right: 50%;
+}
+.station:first-child:before {
+  display: none;
+}
+.station:checked ~ .station::before {
+  display: none;
+}
+
+.station:hover::after {
+  top: 50%;
+  left: 50%;
+  border: 3px solid #856f6f;
+  transform: translate(-50%, -50%) scale(1.3);
+}
+.route-dot {
+  position: relative;
+}
+.station-info {
+  position: relative;
+}
+span {
+  position: absolute;
+  left: 50%;
+  top: -50px;
+  transform: rotate(-45deg);
+  transform-origin: center left;
+}
+.route-line-holder {
+  padding-top: 100px;
+}
+.route {
+  position: relative;
+  transition: 1s;
+}
+
+.route:hover .route-name {
+  /* font-weight: bold;
+  padding: 10px 60px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, .15); */
+  font-weight: bold;
+  padding: 10px 60px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+}
+
+.route-name {
+  transition: .5s;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  color: rgb(82, 79, 79);
+  background: rgb(238, 214, 3);
+  padding: 5px 10px;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+/* 
+.route {
+  position: relative;
+  transition: 1s;
+  }
+
+.route-name {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  padding: 10px 20px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, .75);
+  z-index: 5;
+  background: #ffd900;
+  transition: all .5s;
+  }
+  .route:hover .route-name {
+  font-weight: bold;
+  padding: 10px 60px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, .15);
+  } */
